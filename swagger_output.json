@@ -11,7 +11,7 @@
     "http"
   ],
   "paths": {
-    "/test1": {
+    "/": {
       "get": {
         "description": "",
         "responses": {
@@ -21,7 +21,17 @@
         }
       }
     },
-    "/test2": {
+    "/test/test1": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/test/test2": {
       "get": {
         "description": "",
         "responses": {

@@ -5,7 +5,7 @@ const doc = {
         title: 'My Express API',
         description: 'Documentation for my Express API',
     },
-    host: 'localhost:3000', // Replace with your server's host and port
+    host: process.env.host || 'localhost:3000', // Replace with your server's host and port
     basePath: '/',
 };
 
