@@ -1,16 +1,23 @@
-// Import the Express library
+// app.js
+
 const express = require('express');
-
-// Create an Express application
 const app = express();
-const port = process.env.PORT || 3000; // Use port 3000 or a specified environment variable
+const port = 3000;
 
-// Define a route
+// Define your API routes
 app.get('/', (req, res) => {
-    res.send('Hello, Express!');
+    res.send('Hello, World!');
 });
+const testRoutes = require('./routers/testRouters');
 
-// Start the server
+app.use('/test', testRoutes);
+// Serve Swagger UI
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger_output.json'); // Path to your generated Swagger file
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+// Start your Express server
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
