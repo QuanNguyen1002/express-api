@@ -4,6 +4,12 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*')
+    next();
+})
+
 // Define your API routes
 app.get('/', (req, res) => {
     res.send('Hello, World!');
